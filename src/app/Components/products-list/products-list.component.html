@@ -12,7 +12,7 @@
                             <img class="product-image" [src]="product.image| nullImage" alt="">
                         </div>
                         <div class="card-body text-center">
-                            <h5 class="card-title">{{product.title | productNameAdjuster}}</h5>
+                            <h5 class="card-title" [routerLink]="['/product',product.id]">{{product.title | productNameAdjuster}}</h5>
                             <p class="card-text">{{product.price | currency}}</p>
                         </div>
                         <div class="card-footer text-muted">

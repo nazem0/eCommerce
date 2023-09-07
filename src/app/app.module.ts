@@ -16,6 +16,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { MainLayoutComponent } from './Layouts/main-layout/main-layout.component';
+import { HomeComponent } from './Components/home/home.component';
 // Dont Forget To Include Pagination In The Website
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MainLayoutComponent } from './Layouts/main-layout/main-layout.component
     LoginComponent,
     RegisterComponent,
     MainLayoutComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

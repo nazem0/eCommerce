@@ -5,14 +5,19 @@ import { ProductsListComponent } from './Components/products-list/products-list.
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { MainLayoutComponent } from './Layouts/main-layout/main-layout.component';
+import { ProductComponent } from './Components/product/product.component';
+import { HomeComponent } from './Components/home/home.component';
 
 const routes: Routes = [
+  // { path: "", redirectTo: "/products", pathMatch: "full" },
   {
-    path: "", component: MainLayoutComponent, children: [
-      { path: "", redirectTo: "/products", pathMatch: "full" },
+    path: "", component: MainLayoutComponent,
+    children: [
+      {path:"", component:HomeComponent},
       { path: 'products', component: ProductsListComponent },
+      { path: 'product/:id', component: ProductComponent },
       { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent },
+      { path: "register", component: RegisterComponent }
     ]
   },
 
