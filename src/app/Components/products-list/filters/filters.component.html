@@ -1,0 +1,18 @@
+<div class="d-flex flex-column align-items-center mb-4">
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+    aria-controls="offcanvasWithBothOptions">Show Filters</button>
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Filters</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column gap-2">
+      <label class="fs-4" for="CategoryFilter">Filter By Category</label>
+      <select #selectedCategory name="" id="CategoryFilter" aria-label="Filter By Category" class="rounded-2 p-1" (change)="GetSelectedCategory(selectedCategory.value)">
+        <option value="">Select Category</option>
+        <option *ngFor="let category of Categories" [value]="category">{{category | uppercase}}</option>
+      </select>
+    </div>
+  </div>
+</div>

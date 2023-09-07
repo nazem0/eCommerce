@@ -1,0 +1,17 @@
+.product-image
+{
+    width: 100px;
+    height: 100px;
+    object-fit:scale-down;
+}
+
+.card
+{
+    border:0px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, .2);
+}
+
+.card-body
+{
+    max-height: 0% !important;
+}
