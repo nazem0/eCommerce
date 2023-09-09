@@ -10,18 +10,17 @@ export class NavComponent {
 
   constructor(private Router:Router, private ActivatedRoute:ActivatedRoute) {    
   }
-ngOnInit()
+ngOnInit():void
 {
   
   this.ActivatedRoute.paramMap.subscribe((params)=>{
-    
     this.Search(params.get("SearchedTitle")!)
   })
 }
-ngOnChanges()
+ngOnChanges():void
 {
 }
-Search(SearchedTitle:string)
+Search(SearchedTitle:string):void
 {
   this.Router.navigate(['/products',SearchedTitle])
 }
