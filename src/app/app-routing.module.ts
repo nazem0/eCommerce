@@ -7,6 +7,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { MainLayoutComponent } from './Layouts/main-layout/main-layout.component';
 import { ProductComponent } from './Components/product/product.component';
 import { HomeComponent } from './Components/home/home.component';
+import { CartComponent } from './Components/cart/cart.component';
 
 const routes: Routes = [
   // { path: "", redirectTo: "/products", pathMatch: "full" },
@@ -14,6 +15,8 @@ const routes: Routes = [
     path: "", component: MainLayoutComponent,
     children: [
       {path:"", component:HomeComponent},
+      {path:"cart",component:CartComponent},
+      { path: 'products/:SearchedTitle', component: ProductsListComponent },
       { path: 'products', component: ProductsListComponent },
       { path: 'product/:id', component: ProductComponent },
       { path: "login", component: LoginComponent },

@@ -1,10 +1,10 @@
-<section>
+<section *ngIf="Product">
     <div class="container">
         <div class="card border-primary">
-          <img class="card-img-top" [src]="Product?.image" alt="Title">
+          <img class="card-img-top" [src]="Product.image" alt="Title">
           <div class="card-body">
-            <h4 class="card-title">{{Product?.title}}</h4>
-            <p class="card-text">{{Product?.price | currency}}</p>
+            <h4 class="card-title">{{Product.title}}</h4>
+            <p class="card-text">{{Product.price | currency}}</p>
           </div>
         </div>
     </div>

@@ -12,8 +12,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="d-flex flex-grow-1 my-2 my-lg-0" role="search">
-                <input class="form-control rounded-end-0" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-primary rounded-start-0" type="submit">Search</button>
+                <input #SearchedTitle class="form-control rounded-end-0" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary rounded-start-0" type="submit" (click)="Search(SearchedTitle.value)">Search</button>
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
@@ -26,6 +26,10 @@
                         <li class="dropdown-item">
                             <a routerLink="/products" routerLinkActive="active">Products</a>
                         </li>
+                        <li class="dropdown-item">
+                            <a routerLink="/cart" routerLinkActive="active">Cart</a>
+                        </li>
+                        
                     </ul>
                 </li>
 

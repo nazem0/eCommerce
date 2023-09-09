@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { CategoriesApiService } from 'src/app/Services/categories-api.service';
-import { ProductsApiService } from 'src/app/Services/products-api.service';
+import { ProductsService } from 'src/app/Services/products.service';
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
@@ -9,7 +9,7 @@ import { ProductsApiService } from 'src/app/Services/products-api.service';
 export class FiltersComponent implements OnInit, OnChanges {
   SelectedCategory: string;
   Categories!: string[];
-  constructor(private CategoriesService: CategoriesApiService, private ProductsService: ProductsApiService) {
+  constructor(private CategoriesService: CategoriesApiService, private ProductsService: ProductsService) {
     this.SelectedCategory = 'All';
   }
   ngOnInit() {

@@ -1,24 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IProduct } from '../Models/i-product';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsApiService {
+export class ProductsService {
   private AllProducts: string = 'https://fakestoreapi.com/products/';
-  private SelectedProduct:any;
-  constructor(private httpClient: HttpClient) { }
-
   GetProducts(): any {
     return this.httpClient.get(this.AllProducts)
   }
-
   GetProductsByCategory(category: string): any {
     // this.SelectedCategory = category;
     // return this.httpClient.get(this.SelectedCategoryURI)
   }
-  GetProductById(id: number): any {
+  GetProductById(id: number): Observable<object> {
     return this.httpClient.get(`https://fakestoreapi.com/products/${id}`)
   }
+  constructor(private httpClient: HttpClient) { }
+
+
 }
