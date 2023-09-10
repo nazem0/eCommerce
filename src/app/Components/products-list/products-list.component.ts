@@ -24,7 +24,7 @@ export class ProductsListComponent implements OnInit {
 
       this.products = this.products.filter((product) => {
         if (this.SearchedTitle!=null) {
-          return product.title.match(this.SearchedTitle)
+          return product.title.toLowerCase().match(this.SearchedTitle.toLowerCase())
         }
         return product
       }

@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NullImagePipe } from './Pipes/null-image.pipe';
 import { ProductNameAdjusterPipe } from './Pipes/product-name-adjuster.pipe';
 import { FiltersComponent } from './Components/products-list/filters/filters.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
@@ -41,7 +41,8 @@ import { CartComponent } from './Components/cart/cart.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

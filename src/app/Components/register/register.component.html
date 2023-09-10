@@ -1,18 +1,102 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
+  integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
 <section class="form-signin w-100 m-auto">
-    <form class="container">
-      <h1 class="h3 mb-3 fw-normal">Register</h1>
-      <div class="form-floating mb-4">
-        <input type="text" class="form-control" id="floatingFullName" placeholder="Name">
-        <label for="floatingFullName">Full Name</label>
+  <form class="container" [formGroup]="RegisterForm" (ngSubmit)="register()">
+    <h1 class="h3 mb-3 fw-normal">Register</h1>
+    <div class="form-floating mb-4">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingFullName"
+        name="FullName"
+        placeholder="Name"
+        formControlName="FullName"
+        [ngClass]="{
+          'is-valid':
+            RegisterForm.controls['FullName'].valid &&
+            RegisterForm.controls['FullName'].touched,
+          'is-invalid':
+            RegisterForm.controls['FullName'].invalid &&
+            RegisterForm.controls['FullName'].touched
+        }"
+      />
+      <label for="floatingFullName">Full Name</label>
+
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">
+        <span *ngIf="RegisterForm.controls['FullName'].hasError('required')">
+          Please Enter a valid Full Name.</span
+        >
       </div>
-      <div class="form-floating mb-4">
-        <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
-        <label for="floatingEmail">Email address</label>
+    </div>
+    <div class="form-floating mb-4">
+      <input
+        type="email"
+        class="form-control"
+        id="floatingEmail"
+        name="Email"
+        placeholder="name@example.com"
+        formControlName="Email"
+        [ngClass]="{'is-valid':RegisterForm.controls['Email'].valid&&RegisterForm.controls['Email'].touched,
+      'is-invalid':RegisterForm.controls['Email'].invalid&&RegisterForm.controls['Email'].touched
+    }"
+      />
+      <label for="floatingEmail">Email address</label>
+      <span class="valid-feedback" *ngIf="RegisterForm.controls['Email'].valid">Valid Email</span>
+      <div class="invalid-feedback">
+        
+        <span *ngIf="RegisterForm.controls['Email'].hasError('required')">Please Enter Your Email</span>
+        <span *ngIf="RegisterForm.controls['Email'].invalid && !RegisterForm.controls['Email'].hasError('required')">Please Enter Valid Email</span>
       </div>
-      <div class="form-floating mb-4">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-      <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
-    </form>
-  </section>
+    </div>
+    <div class="form-floating mb-4">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingUsername"
+        name="Username"
+        placeholder="Username"
+        formControlName="Username"
+        [ngClass]="{'is-valid':RegisterForm.controls['Username'].valid&&RegisterForm.controls['Username'].touched,
+      'is-invalid':RegisterForm.controls['Username'].invalid&&RegisterForm.controls['Username'].touched}"
+      />
+      <label for="floatingUsername">Username</label>
+      <span class="valid-feedback" *ngIf="RegisterForm.controls['Username'].valid">Valid Username</span>
+      <span class="invalid-feedback" *ngIf="RegisterForm.controls['Username'].invalid && !RegisterForm.controls['Username'].hasError('required')">Invalid Username</span>
+      <span class="invalid-feedback" *ngIf="RegisterForm.controls['Username'].hasError('required')">Username Required</span>
+
+    </div>
+    <div class="form-floating mb-4">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        name="Password"
+        placeholder="Password"
+        formControlName="Password"
+        [ngClass]="{'is-valid':RegisterForm.controls['Password'].valid,
+      'is-invalid':RegisterForm.controls['Password'].invalid&&RegisterForm.controls['Password'].touched}"
+      />
+      <label for="floatingPassword">Password</label>
+      <span class="invalid-feedback" *ngIf="RegisterForm.controls['Password'].invalid">password length should not be less than 8 characters and contains at least one lowercase , one uppercase ,  at least one digit and special character [ example : *@%$#  ]</span>
+    </div>
+    <div class="form-floating mb-4">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingConfirmPassword"
+        name="ConfirmPassword"
+        placeholder="Confirm Password"
+        formControlName="ConfirmPassword"
+      />
+      <label for="floatingConfirmPassword">Confirm Password</label>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+  </form>
+</section>

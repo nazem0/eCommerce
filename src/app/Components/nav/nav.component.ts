@@ -14,14 +14,19 @@ ngOnInit():void
 {
   
   this.ActivatedRoute.paramMap.subscribe((params)=>{
-    this.Search(params.get("SearchedTitle")!)
+    this.Search(params.get("SearchedTitle"))
   })
 }
 ngOnChanges():void
 {
 }
-Search(SearchedTitle:string):void
+Search(SearchedTitle:string|null):void
 {
+  if(SearchedTitle)
+  {
+
+  
   this.Router.navigate(['/products',SearchedTitle])
+}
 }
 }

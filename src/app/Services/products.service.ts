@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
   private AllProducts: string = 'https://fakestoreapi.com/products/';
+  constructor(private httpClient: HttpClient) { }
   GetProducts(): any {
     return this.httpClient.get(this.AllProducts)
   }
@@ -17,7 +18,6 @@ export class ProductsService {
   GetProductById(id: number): Observable<object> {
     return this.httpClient.get(`https://fakestoreapi.com/products/${id}`)
   }
-  constructor(private httpClient: HttpClient) { }
 
 
 }
