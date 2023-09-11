@@ -8,11 +8,12 @@ import { MainLayoutComponent } from './Layouts/main-layout/main-layout.component
 import { ProductComponent } from './Components/product/product.component';
 import { HomeComponent } from './Components/home/home.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { loggedInGuard } from './Guards/logged-in.guard';
 
 const routes: Routes = [
   // { path: "", redirectTo: "/products", pathMatch: "full" },
   {
-    path: "", component: MainLayoutComponent,
+    path: "", component: MainLayoutComponent,canActivate:[loggedInGuard],
     children: [
       {path:"", component:HomeComponent},
       {path:"cart",component:CartComponent},
